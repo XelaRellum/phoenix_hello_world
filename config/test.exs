@@ -8,8 +8,8 @@ import Config
 config :hello_world, HelloWorld.Repo,
   username: "postgres",
   password: "postgres",
-  database: "hello_world_test#{System.get_env("MIX_TEST_PARTITION")}",
   hostname: "localhost",
+  database: "hello_world_test#{System.get_env("MIX_TEST_PARTITION")}",
   pool: Ecto.Adapters.SQL.Sandbox,
   pool_size: 10
 
@@ -17,7 +17,7 @@ config :hello_world, HelloWorld.Repo,
 # you can enable the server option below.
 config :hello_world, HelloWorldWeb.Endpoint,
   http: [ip: {127, 0, 0, 1}, port: 4002],
-  secret_key_base: "YZ/ZrNKtpuQbwFTqcaUoKpXeuLB0suImPi0Ts65OYoInrZKFcmLo695jFZGUmUHS",
+  secret_key_base: "23xmoaaWoF1nMWVRy0ohQ+mCr0rdFVje0aASFfO9Gl7+RyARheaUmDWpyBkjqsTs",
   server: false
 
 # In test we don't send emails.

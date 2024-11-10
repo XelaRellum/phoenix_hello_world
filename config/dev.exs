@@ -4,8 +4,9 @@ import Config
 config :hello_world, HelloWorld.Repo,
   username: "postgres",
   password: "postgres",
-  database: "hello_world_dev",
   hostname: "localhost",
+  database: "hello_world_dev",
+  stacktrace: true,
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
 
@@ -22,7 +23,7 @@ config :hello_world, HelloWorldWeb.Endpoint,
   check_origin: false,
   code_reloader: true,
   debug_errors: true,
-  secret_key_base: "syx6J0KrJsgQj/SAyLtrhPjNiofP4IciwJmwMKn2j/io11Df1SRl/BVC1VUf7FOy",
+  secret_key_base: "iVvbl0ggixZY3wD7pOng+Dagg3bnRowgzmqC/5fyVrYjaVtPOVjT+kpkIGd6lNci",
   watchers: [
     # Start the esbuild watcher by calling Esbuild.install_and_run(:default, args)
     esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]}

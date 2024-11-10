@@ -37,6 +37,7 @@ defmodule HelloWorldWeb.Router do
 
     scope "/" do
       pipe_through :browser
+
       live_dashboard "/dashboard", metrics: HelloWorldWeb.Telemetry
     end
   end

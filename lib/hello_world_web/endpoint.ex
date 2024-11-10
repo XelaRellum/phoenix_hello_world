@@ -7,7 +7,7 @@ defmodule HelloWorldWeb.Endpoint do
   @session_options [
     store: :cookie,
     key: "_hello_world_key",
-    signing_salt: "vgJhczgi"
+    signing_salt: "x/gP8vux"
   ]
 
   socket "/live", Phoenix.LiveView.Socket, websocket: [connect_info: [session: @session_options]]
