@@ -17,14 +17,17 @@ config :hello_world, HelloWorld.Repo,
 # you can enable the server option below.
 config :hello_world, HelloWorldWeb.Endpoint,
   http: [ip: {127, 0, 0, 1}, port: 4002],
-  secret_key_base: "23xmoaaWoF1nMWVRy0ohQ+mCr0rdFVje0aASFfO9Gl7+RyARheaUmDWpyBkjqsTs",
+  secret_key_base: "TmtaHg8y7iBi7CpHuZfPlqr387Cnnc5VjeaxobQDKBm8JUVJnYkJngRXL3n0w2Cu",
   server: false
 
 # In test we don't send emails.
 config :hello_world, HelloWorld.Mailer, adapter: Swoosh.Adapters.Test
 
+# Disable swoosh api client as it is only required for production adapters.
+config :swoosh, :api_client, false
+
 # Print only warnings and errors during test
-config :logger, level: :warn
+config :logger, level: :warning
 
 # Initialize plugs at runtime for faster test compilation
 config :phoenix, :plug_init_mode, :runtime

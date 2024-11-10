@@ -7,7 +7,8 @@ defmodule HelloWorldWeb.Endpoint do
   @session_options [
     store: :cookie,
     key: "_hello_world_key",
-    signing_salt: "x/gP8vux"
+    signing_salt: "YHteHn1v",
+    same_site: "Lax"
   ]
 
   socket "/live", Phoenix.LiveView.Socket, websocket: [connect_info: [session: @session_options]]
@@ -20,7 +21,7 @@ defmodule HelloWorldWeb.Endpoint do
     at: "/",
     from: :hello_world,
     gzip: false,
-    only: ~w(assets fonts images favicon.ico robots.txt)
+    only: HelloWorldWeb.static_paths()
 
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.

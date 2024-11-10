@@ -8,12 +8,14 @@ defmodule HelloWorld.Application do
   @impl true
   def start(_type, _args) do
     children = [
-      # Start the Ecto repository
-      HelloWorld.Repo,
       # Start the Telemetry supervisor
       HelloWorldWeb.Telemetry,
+      # Start the Ecto repository
+      HelloWorld.Repo,
       # Start the PubSub system
       {Phoenix.PubSub, name: HelloWorld.PubSub},
+      # Start Finch
+      {Finch, name: HelloWorld.Finch},
       # Start the Endpoint (http/https)
       HelloWorldWeb.Endpoint
       # Start a worker by calling: HelloWorld.Worker.start_link(arg)
