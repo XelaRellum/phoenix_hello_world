@@ -8,17 +8,19 @@
 import Config
 
 config :hello_world,
-  ecto_repos: [HelloWorld.Repo]
+  ecto_repos: [HelloWorld.Repo],
+  generators: [timestamp_type: :utc_datetime]
 
 # Configures the endpoint
 config :hello_world, HelloWorldWeb.Endpoint,
   url: [host: "localhost"],
+  adapter: Bandit.PhoenixAdapter,
   render_errors: [
     formats: [html: HelloWorldWeb.ErrorHTML, json: HelloWorldWeb.ErrorJSON],
     layout: false
   ],
   pubsub_server: HelloWorld.PubSub,
-  live_view: [signing_salt: "m6ZhU+6+"]
+  live_view: [signing_salt: "3McNclgf"]
 
 # Configures the mailer
 #
@@ -31,8 +33,8 @@ config :hello_world, HelloWorld.Mailer, adapter: Swoosh.Adapters.Local
 
 # Configure esbuild (the version is required)
 config :esbuild,
-  version: "0.14.41",
-  default: [
+  version: "0.17.11",
+  hello_world: [
     args:
       ~w(js/app.js --bundle --target=es2017 --outdir=../priv/static/assets --external:/fonts/* --external:/images/*),
     cd: Path.expand("../assets", __DIR__),
@@ -41,8 +43,8 @@ config :esbuild,
 
 # Configure tailwind (the version is required)
 config :tailwind,
-  version: "3.2.4",
-  default: [
+  version: "3.4.3",
+  hello_world: [
     args: ~w(
       --config=tailwind.config.js
       --input=css/app.css

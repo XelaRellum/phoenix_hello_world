@@ -8,18 +8,16 @@ defmodule HelloWorld.Application do
   @impl true
   def start(_type, _args) do
     children = [
-      # Start the Telemetry supervisor
       HelloWorldWeb.Telemetry,
-      # Start the Ecto repository
       HelloWorld.Repo,
-      # Start the PubSub system
+      {DNSCluster, query: Application.get_env(:hello_world, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: HelloWorld.PubSub},
-      # Start Finch
+      # Start the Finch HTTP client for sending emails
       {Finch, name: HelloWorld.Finch},
-      # Start the Endpoint (http/https)
-      HelloWorldWeb.Endpoint
       # Start a worker by calling: HelloWorld.Worker.start_link(arg)
-      # {HelloWorld.Worker, arg}
+      # {HelloWorld.Worker, arg},
+      # Start to serve requests, typically the last entry
+      HelloWorldWeb.Endpoint
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

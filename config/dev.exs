@@ -14,8 +14,8 @@ config :hello_world, HelloWorld.Repo,
 # debugging and code reloading.
 #
 # The watchers configuration can be used to run external
-# watchers to your application. For example, we use it
-# with esbuild to bundle .js and .css sources.
+# watchers to your application. For example, we can use it
+# to bundle .js and .css sources.
 config :hello_world, HelloWorldWeb.Endpoint,
   # Binding to loopback ipv4 address prevents access from other machines.
   # Change to `ip: {0, 0, 0, 0}` to allow access from other machines.
@@ -23,10 +23,10 @@ config :hello_world, HelloWorldWeb.Endpoint,
   check_origin: false,
   code_reloader: true,
   debug_errors: true,
-  secret_key_base: "MEfv5nWlTbE5qRnqXoq4F7nG/ownBo5f6NSj0dd1Yz6viHj3z3JTeSfId89poTFe",
+  secret_key_base: "5pXH09A6t4znkz88Dm7kUj1t6MgnY7tSBE7do3OGjZwAxyIGN5GIaGEXfTL8VUPx",
   watchers: [
-    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]},
-    tailwind: {Tailwind, :install_and_run, [:default, ~w(--watch)]}
+    esbuild: {Esbuild, :install_and_run, [:hello_world, ~w(--sourcemap=inline --watch)]},
+    tailwind: {Tailwind, :install_and_run, [:hello_world, ~w(--watch)]}
   ]
 
 # ## SSL Support
@@ -56,7 +56,7 @@ config :hello_world, HelloWorldWeb.Endpoint,
 config :hello_world, HelloWorldWeb.Endpoint,
   live_reload: [
     patterns: [
-      ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
+      ~r"priv/static/(?!uploads/).*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
       ~r"lib/hello_world_web/(controllers|live|components)/.*(ex|heex)$"
     ]
@@ -74,6 +74,12 @@ config :phoenix, :stacktrace_depth, 20
 
 # Initialize plugs at runtime for faster development compilation
 config :phoenix, :plug_init_mode, :runtime
+
+config :phoenix_live_view,
+  # Include HEEx debug annotations as HTML comments in rendered markup
+  debug_heex_annotations: true,
+  # Enable helpful, but potentially expensive runtime checks
+  enable_expensive_runtime_checks: true
 
 # Disable swoosh api client as it is only required for production adapters.
 config :swoosh, :api_client, false
