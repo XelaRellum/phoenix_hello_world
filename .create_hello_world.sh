@@ -4,7 +4,7 @@
 set -e
 ERLANG_VERSION=27.1.2
 ELIXIR_VERSION=1.17.3-otp-27
-PHOENIX_VERSION=1.6.16
+PHOENIX_VERSION=1.7.0
 
 echo Install Erlang and Elixir
 asdf install erlang $ERLANG_VERSION
