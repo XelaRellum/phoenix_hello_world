@@ -1,0 +1,8 @@
+{
+    "recommendations": [
+        "DavidAnson.vscode-markdownlint",
+        "JakeBecker.elixir-ls",
+        "phoenixframework.phoenix",
+        "yzhang.markdown-all-in-one"
+    ]
+}

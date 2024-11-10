@@ -1,0 +1,6 @@
+{
+    "editor.formatOnSave": true,
+    "editor.trimAutoWhitespace": true,
+    "editor.tabSize": 4,
+    "editor.useTabStops": false
+}
