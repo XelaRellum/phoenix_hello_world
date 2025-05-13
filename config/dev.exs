@@ -23,7 +23,7 @@ config :hello_world, HelloWorldWeb.Endpoint,
   check_origin: false,
   code_reloader: true,
   debug_errors: true,
-  secret_key_base: "5pXH09A6t4znkz88Dm7kUj1t6MgnY7tSBE7do3OGjZwAxyIGN5GIaGEXfTL8VUPx",
+  secret_key_base: "dwP80jx37dX6xJ31OkWDVZDZrbERuPIK5wiK2KBe1SSrRf0vz0Ehe3y7TPfhekr8",
   watchers: [
     esbuild: {Esbuild, :install_and_run, [:hello_world, ~w(--sourcemap=inline --watch)]},
     tailwind: {Tailwind, :install_and_run, [:hello_world, ~w(--watch)]}

@@ -20,7 +20,7 @@ config :hello_world, HelloWorldWeb.Endpoint,
     layout: false
   ],
   pubsub_server: HelloWorld.PubSub,
-  live_view: [signing_salt: "3McNclgf"]
+  live_view: [signing_salt: "6JQ3wuwG"]
 
 # Configures the mailer
 #

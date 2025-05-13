@@ -42,8 +42,9 @@ defmodule HelloWorldWeb do
         formats: [:html, :json],
         layouts: [html: HelloWorldWeb.Layouts]
 
+      use Gettext, backend: HelloWorldWeb.Gettext
+
       import Plug.Conn
-      import HelloWorldWeb.Gettext
 
       unquote(verified_routes())
     end
@@ -81,11 +82,13 @@ defmodule HelloWorldWeb do
 
   defp html_helpers do
     quote do
+      # Translation
+      use Gettext, backend: HelloWorldWeb.Gettext
+
       # HTML escaping functionality
       import Phoenix.HTML
-      # Core UI components and translation
+      # Core UI components
       import HelloWorldWeb.CoreComponents
-      import HelloWorldWeb.Gettext
 
       # Shortcut for generating JS commands
       alias Phoenix.LiveView.JS
