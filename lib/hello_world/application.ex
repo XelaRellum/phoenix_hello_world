@@ -12,8 +12,6 @@ defmodule HelloWorld.Application do
       HelloWorld.Repo,
       {DNSCluster, query: Application.get_env(:hello_world, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: HelloWorld.PubSub},
-      # Start the Finch HTTP client for sending emails
-      {Finch, name: HelloWorld.Finch},
       # Start a worker by calling: HelloWorld.Worker.start_link(arg)
       # {HelloWorld.Worker, arg},
       # Start to serve requests, typically the last entry

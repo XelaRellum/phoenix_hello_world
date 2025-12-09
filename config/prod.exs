@@ -8,8 +8,12 @@ import Config
 config :hello_world, HelloWorldWeb.Endpoint,
   cache_static_manifest: "priv/static/cache_manifest.json"
 
-# Configures Swoosh API Client
-config :swoosh, api_client: Swoosh.ApiClient.Finch, finch_name: HelloWorld.Finch
+# Force using SSL in production. This also sets the "strict-security-transport" header,
+# also known as HSTS. `:force_ssl` is required to be set at compile-time.
+config :hello_world, HelloWorldWeb.Endpoint, force_ssl: [rewrite_on: [:x_forwarded_proto]]
+
+# Configure Swoosh API Client
+config :swoosh, api_client: Swoosh.ApiClient.Req
 
 # Disable Swoosh Local Memory Storage
 config :swoosh, local: false

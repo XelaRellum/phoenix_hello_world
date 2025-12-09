@@ -19,11 +19,11 @@ config :hello_world, HelloWorld.Repo,
 config :hello_world, HelloWorldWeb.Endpoint,
   # Binding to loopback ipv4 address prevents access from other machines.
   # Change to `ip: {0, 0, 0, 0}` to allow access from other machines.
-  http: [ip: {127, 0, 0, 1}, port: 4000],
+  http: [ip: {127, 0, 0, 1}],
   check_origin: false,
   code_reloader: true,
   debug_errors: true,
-  secret_key_base: "dwP80jx37dX6xJ31OkWDVZDZrbERuPIK5wiK2KBe1SSrRf0vz0Ehe3y7TPfhekr8",
+  secret_key_base: "CwnLqp9Wml/hjFlEG2BvbVIiVfzEvm/aRyiBcsc/geNXfPELp34TrFEolEAKTJCr",
   watchers: [
     esbuild: {Esbuild, :install_and_run, [:hello_world, ~w(--sourcemap=inline --watch)]},
     tailwind: {Tailwind, :install_and_run, [:hello_world, ~w(--watch)]}
@@ -52,13 +52,18 @@ config :hello_world, HelloWorldWeb.Endpoint,
 # configured to run both http and https servers on
 # different ports.
 
-# Watch static and templates for browser reloading.
+# Reload browser tabs when matching files change.
 config :hello_world, HelloWorldWeb.Endpoint,
   live_reload: [
+    web_console_logger: true,
     patterns: [
-      ~r"priv/static/(?!uploads/).*(js|css|png|jpeg|jpg|gif|svg)$",
-      ~r"priv/gettext/.*(po)$",
-      ~r"lib/hello_world_web/(controllers|live|components)/.*(ex|heex)$"
+      # Static assets, except user uploads
+      ~r"priv/static/(?!uploads/).*\.(js|css|png|jpeg|jpg|gif|svg)$"E,
+      # Gettext translations
+      ~r"priv/gettext/.*\.po$"E,
+      # Router, Controllers, LiveViews and LiveComponents
+      ~r"lib/hello_world_web/router\.ex$"E,
+      ~r"lib/hello_world_web/(controllers|live|components)/.*\.(ex|heex)$"E
     ]
   ]
 
@@ -66,7 +71,7 @@ config :hello_world, HelloWorldWeb.Endpoint,
 config :hello_world, dev_routes: true
 
 # Do not include metadata nor timestamps in development logs
-config :logger, :console, format: "[$level] $message\n"
+config :logger, :default_formatter, format: "[$level] $message\n"
 
 # Set a higher stacktrace during development. Avoid configuring such
 # in production as building large stacktraces may be expensive.
@@ -76,8 +81,10 @@ config :phoenix, :stacktrace_depth, 20
 config :phoenix, :plug_init_mode, :runtime
 
 config :phoenix_live_view,
-  # Include HEEx debug annotations as HTML comments in rendered markup
+  # Include debug annotations and locations in rendered markup.
+  # Changing this configuration will require mix clean and a full recompile.
   debug_heex_annotations: true,
+  debug_attributes: true,
   # Enable helpful, but potentially expensive runtime checks
   enable_expensive_runtime_checks: true
 
