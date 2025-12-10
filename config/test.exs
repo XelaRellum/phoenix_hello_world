@@ -17,7 +17,7 @@ config :hello_world, HelloWorld.Repo,
 # you can enable the server option below.
 config :hello_world, HelloWorldWeb.Endpoint,
   http: [ip: {127, 0, 0, 1}, port: 4002],
-  secret_key_base: "UA+Mny1Kq8oq+4LR2GBNfGDxNNND6oclVS/wQ99Jm8zAy+DmLLFhJJCY4vSkqWFm",
+  secret_key_base: "mT/CWFm+xqgQ8g35yO9lgXET4Hn5euC3BrVQC+U/zAk3Grxgd/7DHIBenBk6KgrJ",
   server: false
 
 # In test we don't send emails
@@ -35,3 +35,7 @@ config :phoenix, :plug_init_mode, :runtime
 # Enable helpful, but potentially expensive runtime checks
 config :phoenix_live_view,
   enable_expensive_runtime_checks: true
+
+# Sort query params output of verified routes for robust url comparisons
+config :phoenix,
+  sort_verified_routes_query_params: true

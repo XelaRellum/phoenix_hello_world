@@ -4,7 +4,7 @@
 set -e
 ERLANG_VERSION=28.2
 ELIXIR_VERSION=1.19.4-otp-28
-PHOENIX_VERSION=1.8.2
+PHOENIX_VERSION=1.8.3
 
 echo Install Erlang and Elixir
 mise use erlang@$ERLANG_VERSION
@@ -22,7 +22,7 @@ mix phx.new hello_world
 echo Remove old files
 popd
 mv mise.toml ..
-rm -r *
+rm -rf *
 mv ../mise.toml .
 git checkout -- README.md LICENSE
 
