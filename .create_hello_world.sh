@@ -4,7 +4,7 @@
 set -e
 ERLANG_VERSION=28.4
 ELIXIR_VERSION=1.19.5-otp-28
-PHOENIX_VERSION=1.8.4
+PHOENIX_VERSION=1.8.5
 
 echo Install Erlang and Elixir
 mise use erlang@$ERLANG_VERSION
