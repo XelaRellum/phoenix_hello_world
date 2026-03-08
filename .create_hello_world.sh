@@ -2,8 +2,8 @@
 # We assume you already have ASDF installed and
 # also the Erlang and Elixir plugins
 set -e
-ERLANG_VERSION=28.2
-ELIXIR_VERSION=1.19.4-otp-28
+ERLANG_VERSION=28.4
+ELIXIR_VERSION=1.19.5-otp-28
 PHOENIX_VERSION=1.8.4
 
 echo Install Erlang and Elixir
