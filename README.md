@@ -9,7 +9,7 @@ The older releases will live on in dedicated branches, like "phoenix_1.7".
 This repository also contains:
 
 - VS Code settings and extensions recommendations
-- <https://asdf-vm.com/>(ASDF) settings for Elixir and Erlang
+- <https://mise.jdx.dev/>(MISE) settings for Elixir and Erlang
 - The bash script ".create_hello_world.sh" that recreates the example
 
 Note: the "README.md" created by "mix phx.new" is in "README hello_world.md"

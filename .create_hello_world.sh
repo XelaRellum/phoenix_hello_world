@@ -1,5 +1,5 @@
 #!/bin/bash
-# We assume you already have ASDF installed and
+# We assume you already have MISE installed and
 # also the Erlang and Elixir plugins
 set -e
 ERLANG_VERSION=28.4
