@@ -20,7 +20,12 @@ config :hello_world, HelloWorldWeb.Endpoint,
     layout: false
   ],
   pubsub_server: HelloWorld.PubSub,
-  live_view: [signing_salt: "zdP/ote3"]
+  live_view: [signing_salt: "tN8tZktF"]
+
+# Configure LiveView
+config :phoenix_live_view,
+  # the attribute set on all root tags. Used for Phoenix.LiveView.ColocatedCSS.
+  root_tag_attribute: "phx-r"
 
 # Configure the mailer
 #
@@ -43,13 +48,14 @@ config :esbuild,
 
 # Configure tailwind (the version is required)
 config :tailwind,
-  version: "4.1.12",
+  version: "4.3.0",
   hello_world: [
     args: ~w(
       --input=assets/css/app.css
       --output=priv/static/assets/css/app.css
     ),
-    cd: Path.expand("..", __DIR__)
+    cd: Path.expand("..", __DIR__),
+    env: %{"NODE_PATH" => [Path.expand("../deps", __DIR__), Mix.Project.build_path()]}
   ]
 
 # Configure Elixir's Logger
