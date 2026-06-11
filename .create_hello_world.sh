@@ -2,9 +2,9 @@
 # We assume you already have MISE installed and
 # also the Erlang and Elixir plugins
 set -e
-PHOENIX_VERSION=1.8.6
 ERLANG_VERSION=29.0.2
 ELIXIR_VERSION=1.20.1-otp-29
+PHOENIX_VERSION=1.8.8
 
 echo Install Erlang and Elixir
 mise use erlang@$ERLANG_VERSION
