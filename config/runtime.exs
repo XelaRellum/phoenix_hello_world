@@ -23,6 +23,23 @@ end
 config :hello_world, HelloWorldWeb.Endpoint,
   http: [port: String.to_integer(System.get_env("PORT", "4000"))]
 
+if config_env() == :dev do
+  # Reload browser tabs when matching files change.
+  config :hello_world, HelloWorldWeb.Endpoint,
+    live_reload: [
+      web_console_logger: true,
+      patterns: [
+        # Static assets, except user uploads
+        ~r"priv/static/(?!uploads/).*\.(js|css|png|jpeg|jpg|gif|svg)$"E,
+        # Gettext translations
+        ~r"priv/gettext/.*\.po$"E,
+        # Router, Controllers, LiveViews and LiveComponents
+        ~r"lib/hello_world_web/router\.ex$"E,
+        ~r"lib/hello_world_web/(controllers|live|components)/.*\.(ex|heex)$"E
+      ]
+    ]
+end
+
 if config_env() == :prod do
   database_url =
     System.get_env("DATABASE_URL") ||

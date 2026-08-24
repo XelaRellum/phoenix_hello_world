@@ -52,21 +52,6 @@ config :hello_world, HelloWorldWeb.Endpoint,
 # configured to run both http and https servers on
 # different ports.
 
-# Reload browser tabs when matching files change.
-config :hello_world, HelloWorldWeb.Endpoint,
-  live_reload: [
-    web_console_logger: true,
-    patterns: [
-      # Static assets, except user uploads
-      ~r"priv/static/(?!uploads/).*\.(js|css|png|jpeg|jpg|gif|svg)$"E,
-      # Gettext translations
-      ~r"priv/gettext/.*\.po$"E,
-      # Router, Controllers, LiveViews and LiveComponents
-      ~r"lib/hello_world_web/router\.ex$"E,
-      ~r"lib/hello_world_web/(controllers|live|components)/.*\.(ex|heex)$"E
-    ]
-  ]
-
 # Enable dev routes for dashboard and mailbox
 config :hello_world, dev_routes: true
 
